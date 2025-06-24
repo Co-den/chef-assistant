@@ -8,7 +8,22 @@ const userRoutes = require("./routes/userRoutes"); // Import user routes
 const app = express();
 connectDB(); // Connect to DB
 
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://chef-assistant-1.onrender.com"
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.use("/recipes", recipeRoutes);
