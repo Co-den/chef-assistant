@@ -1,6 +1,6 @@
 # Node modules
 node_modules/
-config.env
+.env
 
 # Logs
 logs/
