@@ -10,7 +10,8 @@ connectDB(); // Connect to DB
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://chef-assistant-1.onrender.com"
+  "https://chef-assistant-1.onrender.com",
+  "https://chef-assistant.netlify.app"
 ];
 
 app.use(cors({
